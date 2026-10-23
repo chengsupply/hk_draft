@@ -1,10 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
+/* The site lives at its own domain, so it sits at the root: no base path, and
+   every absolute URL is built from chengsupply.com. BASE_PATH still works for a
+   preview build under a subfolder, but nothing uses it now. */
 const base = process.env.BASE_PATH || '/';
 const site =
   base === '/'
-    ? 'https://nurzhanmukhitov.github.io/hk_draft'
+    ? 'https://chengsupply.com'
     : `https://nurzhanmukhitov.github.io${base.replace(/\/$/, '')}`;
 
 // https://astro.build/config

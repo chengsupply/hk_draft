@@ -29,8 +29,6 @@ jobs:
           cache-dependency-path: site/package-lock.json
       - run: npm ci
       - run: npm run build
-        env:
-          BASE_PATH: /hk_draft
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site/dist

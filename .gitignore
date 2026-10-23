@@ -15,3 +15,10 @@ node_modules/
 site/node_modules/
 site/dist/
 site/.astro/
+
+# secrets — never committed. The session hook runs `git add -A`, so this mask is
+# the second line of defence after simply not putting keys in the repo.
+.env
+.env.local
+.env.local.*
+*.token

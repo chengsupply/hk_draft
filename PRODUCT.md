@@ -62,8 +62,10 @@ credible.
 - **Undecided:** the wordmark. The build still carries a `LOGO HERE` placeholder in
   the header and footer. The name is known, the logo is not — do not invent one, and
   keep the logo slot swappable in markup and CSS.
-- **Undecided:** the public email address. `sales@example.hk` is still a placeholder
-  and the client will supply the real one.
+- The public email address is **sales@chengsupply.com**, an alias on the
+  `admin@chengsupply.com` mailbox (Zoho Mail, EU data centre, set up 2026-10-23
+  on the domain the client bought the same day). The earlier `sales@example.hk`
+  placeholder is gone.
 
 ## Brand Commitments
 
@@ -104,9 +106,8 @@ Real:
   `site/public/images/wechat-qr.png`.
 
 Absent — must not be fabricated:
-- The public email address. `sales@example.hk` is a placeholder until the client
-  supplies the real one; the previously shown phone number and WhatsApp link were
-  invented and have been removed.
+- The previously shown phone number and WhatsApp link were invented and have
+  been removed.
 - Customers, testimonials, case studies, press, certifications, stock levels,
   lead times, prices, founding year.
 
