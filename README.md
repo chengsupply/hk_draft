@@ -26,9 +26,8 @@ npm run preview  # http://localhost:4321
 
 Репозиторий: https://github.com/chengsupply/hk_draft
 
-Владелец — аккаунт клиента `chengsupply`. Нуржан в репозитории соавтор:
-пушить может, настройки менять — нет, они правятся ключом клиента из
-`.env.local`.
+Владелец — аккаунт клиента `chengsupply`. Сторонних соавторов нет: и код, и
+настройки идут по ключу этого аккаунта из `.env.local`.
 
 - `ci.yml` — проверка сборки на PR
 - `deploy-pages.yml` — деплой на GitHub Pages
