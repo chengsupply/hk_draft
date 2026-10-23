@@ -45,8 +45,8 @@ credible.
 
 ## Capabilities and Constraints
 
-- Astro 5, static output, no backend. Deployed to GitHub Pages under `/hk_draft`,
-  built from `site/`. Nothing on the site can accept and process a form submission
+- Astro 5, static output, no backend. Built from `site/` and deployed to GitHub
+  Pages at its own domain, **chengsupply.com**. Nothing on the site can accept and process a form submission
   server-side.
 - Contact mechanism (decided 2026-09-16, narrowed the same day): **email and
   WeChat only.** No phone number, no WhatsApp, and **no RFQ form** — the

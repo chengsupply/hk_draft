@@ -4,7 +4,11 @@
 
 ## Живой сайт
 
-**https://chengsupply.github.io/hk_draft/**
+**https://chengsupply.com**
+
+`www.chengsupply.com` ведёт туда же. Старый адрес
+`chengsupply.github.io/hk_draft` отдаёт 301 на домен — это служебное имя
+GitHub Pages, убрать его нельзя, да и не нужно: старые ссылки живут.
 
 Каждый push в `main` → GitHub Actions собирает `site/` и публикует на GitHub Pages.
 
@@ -16,14 +20,6 @@ npm install
 npm run dev      # http://localhost:4321
 npm run build
 npm run preview  # http://localhost:4321
-```
-
-Проверить сборку как на GitHub Pages:
-
-```bash
-cd site
-BASE_PATH=/hk_draft npm run build
-npm run preview -- --base /hk_draft
 ```
 
 ## GitHub

@@ -15,10 +15,10 @@ interface Props {
 const { locale, title, description } = Astro.props;
 const htmlLang = locale === 'zh-CN' ? 'zh-Hans' : 'en';
 
-/* Absolute URLs are built from the configured site root rather than from `base`,
-   so they stay correct whether the build runs locally or under /hk_draft. */
+/* Absolute URLs are built from the configured site root, so they stay correct
+   whether the build runs locally or on Pages. */
 const root = new URL(
-  (Astro.site?.href ?? 'https://nurzhanmukhitov.github.io/hk_draft/').replace(/\/?$/, '/')
+  (Astro.site?.href ?? 'https://chengsupply.com/').replace(/\/?$/, '/')
 );
 const abs = (path: string) => new URL(path.replace(/^\//, ''), root).href;
 
