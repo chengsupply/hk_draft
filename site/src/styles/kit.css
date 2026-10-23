@@ -379,6 +379,17 @@ a{color:inherit;text-decoration:none;}
   .wrap{padding:0 20px;}
   .mobile-nav a{padding:14px 20px;}
 }
+/* Без мыши карусель остановить нечем: пауза висит на :hover, которого на
+   тач-экране нет. Вдобавок бесконечная анимация постоянно двигает слой
+   шириной в оба набора карточек (на телефоне это больше 5000px), и iOS
+   рисует его рывками — текст карточек наползает на соседние. Поэтому на
+   тач-экранах лента не едет сама, её листают пальцем; дубль набора,
+   нужный только для бесшовной петли, при этом лишний. */
+@media (hover:none){
+  .carousel--marquee .carousel-track{animation:none;width:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 20px var(--space-2);}
+  .carousel--marquee .carousel-set[aria-hidden="true"]{display:none;}
+}
+
 @media (prefers-reduced-motion:reduce){*{transition:none!important;}.carousel--marquee .carousel-track{animation:none;transform:none;}}
 
 @media (max-width:380px){

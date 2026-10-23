@@ -467,6 +467,10 @@ ease-out as it enters the viewport, staggered 50–60ms per item, with the how-i
 steps animating their number, rule, title, and body in sequence. The industries band
 runs a 48s linear marquee that pauses on hover. `prefers-reduced-motion: reduce` kills
 every transition and freezes the marquee — this is already implemented and must stay.
+So does `hover: none`: a pointer that cannot hover cannot pause, so on touch the band
+does not move at all and is swiped instead. Keeping it moving there left the viewer no
+way to stop it, and iOS mis-composited the wide animated layer badly enough to tear the
+card text across neighbours.
 
 **The One Curve Rule.** There is a single easing curve in this system. A new component
 that needs a different curve is asking for a different system.
