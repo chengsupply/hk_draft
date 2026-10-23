@@ -53,6 +53,40 @@ python3 scripts/build-images.py   # после добавления или за�
 Шрифты обрезаны до символов, которые есть в исходниках: новый иероглиф без
 пересборки отрисуется системным шрифтом. Нужны `fonttools` и `brotli`.
 
+## Домен, DNS и почта
+
+Домен `chengsupply.com` куплен у UnderHost, но серверы имён указывают на
+Cloudflare — у регистратора нет редактора записей. Сайт на GitHub Pages,
+почта в Zoho (европейский дата-центр).
+
+**DNS правится из терминала, в браузер ходить не надо.** Токен лежит в
+`.env.local` в корне репозитория, он в git не едет и между машинами
+переносится руками.
+
+```bash
+set -a && . ./.env.local && set +a
+ZID=$(curl -sS "https://api.cloudflare.com/client/v4/zones?name=$CLOUDFLARE_ZONE_NAME" \
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" | python3 -c \
+  "import sys,json; print(json.load(sys.stdin)['result'][0]['id'])")
+curl -sS "https://api.cloudflare.com/client/v4/zones/$ZID/dns_records?per_page=100" \
+  -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+```
+
+Токен узкий: область — только зона `chengsupply.com`, право — только
+`DNS:Edit`. Ни аккаунтом, ни другими зонами, ни почтой он не распоряжается.
+Отзывается в Cloudflare → My Profile → API Tokens.
+
+**Проксирование у всех записей выключено** («DNS only», серое облако). Под
+оранжевым облаком GitHub Pages не выпустит сертификат, и сайт отдаст ошибку.
+Новые записи для сайта заводить только с `"proxied": false`.
+
+Настройки GitHub Pages (домен, HTTPS) правятся через `gh api`, тоже без
+браузера:
+
+```bash
+gh api repos/<владелец>/<репозиторий>/pages --jq '{cname,https_enforced}'
+```
+
 ## Разработка
 
 ```bash
