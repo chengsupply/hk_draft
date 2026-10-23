@@ -64,7 +64,8 @@ Astro 5, статика, деплой на GitHub Pages при каждом пу
 **Сделано:** домен куплен у UnderHost, серверы имён переписаны на Cloudflare
 (`lynn` / `may.ns.cloudflare.com`), зона собрана импортом BIND-файла: четыре A
 и четыре AAAA на GitHub Pages, `www` CNAME на `chengsupply.github.io`,
-TXT подтверждения Zoho, три MX Zoho EU, SPF и DKIM. Все записи — «DNS only».
+TXT подтверждения Zoho, три MX Zoho EU, SPF, DKIM и DMARC в режиме наблюдения
+(`p=none`, отчёты на `admin@`). Все записи — «DNS only».
 В Zoho подтверждён домен, создан ящик `admin@chengsupply.com` и алиас
 `sales@chengsupply.com`. В сайте заглушка `sales@example.hk` заменена
 настоящим адресом, `astro.config.mjs` переведён на корень и домен,
@@ -88,7 +89,8 @@ Upload список остался пустым, а сообщения об ош
 Mail Lite, это платно — решение за Нуржаном. Почта «туда-обратно» живым
 письмом не проверялась. Адрес `chengsupply@outlook.com` в Cloudflare
 не подтверждён, пока он не подтверждён — адрес аккаунта не сменить.
-DMARC-записи нет.
+DMARC стоит на `p=none`: он только собирает отчёты и никого не отклоняет;
+ужесточать до `quarantine` стоит, когда отчёты покажут, что всё подписано.
 
 ### 05.10.2026 — варианты домена и почты Outlook
 
