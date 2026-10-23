@@ -80,12 +80,19 @@ curl -sS "https://api.cloudflare.com/client/v4/zones/$ZID/dns_records?per_page=1
 оранжевым облаком GitHub Pages не выпустит сертификат, и сайт отдаст ошибку.
 Новые записи для сайта заводить только с `"proxied": false`.
 
-Настройки GitHub Pages (домен, HTTPS) правятся через `gh api`, тоже без
-браузера:
+Репозиторий принадлежит аккаунту клиента `chengsupply`. Обычный `gh` ходит
+от имени Нуржана, а он тут только соавтор: код пушить может, настройки менять
+нет. Настройки Pages правятся ключом клиента из того же `.env.local`:
 
 ```bash
-gh api repos/<владелец>/<репозиторий>/pages --jq '{cname,https_enforced}'
+set -a && . ./.env.local && set +a
+curl -sS -H "Authorization: Bearer $GITHUB_CHENGSUPPLY_TOKEN" \
+  -H "Accept: application/vnd.github+json" \
+  https://api.github.com/repos/chengsupply/hk_draft/pages
 ```
+
+Токен бессрочный, права: Administration, Contents, Pages, Workflows на запись,
+Metadata на чтение. Отзывается на github.com/settings/personal-access-tokens.
 
 ## Разработка
 
