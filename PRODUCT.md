@@ -62,8 +62,9 @@ credible.
 - **Undecided:** the wordmark. The build still carries a `LOGO HERE` placeholder in
   the header and footer. The name is known, the logo is not — do not invent one, and
   keep the logo slot swappable in markup and CSS.
-- The public email address is **sales@chengsupply.com**, an alias on the
-  `admin@chengsupply.com` mailbox (Zoho Mail, EU data centre, set up 2026-10-23
+- The public email address is **sales@chengsupply.com**. It is the mailbox
+  itself, not a forward: `admin@chengsupply.com` is the alias on it, kept only
+  for account recovery (Zoho Mail, EU data centre, set up 2026-10-23
   on the domain the client bought the same day). The earlier `sales@example.hk`
   placeholder is gone.
 
