@@ -25,7 +25,11 @@ const homeHref = localeRoot(locale);
       <div class="foot-contact">
         <h4>{t.contact}</h4>
         <ul>
-          {t.contactList.map((c) => <li>{c}</li>)}
+          {/* Почта в этом списке — единственная строка, по которой есть куда
+              нажать. Остальные (адрес, город, WeChat) остаются текстом. */}
+          {t.contactList.map((c) => (
+            <li>{c.includes('@') ? <a class="foot-mail" href={`mailto:${c}`}>{c}</a> : c}</li>
+          ))}
         </ul>
       </div>
     </div>

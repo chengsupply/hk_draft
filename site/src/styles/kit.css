@@ -270,6 +270,10 @@ a{color:inherit;text-decoration:none;}
 .foot-grid ul{list-style:none;}
 .foot-grid li{font-size:14px;color:var(--text-on-navy-2);padding:var(--space-1) 0;}
 .foot-grid .tag{font-size:14px;color:var(--text-on-navy-2);line-height:1.5;}
+/* В подвале кликается только почта, поэтому она не выделяется цветом в
+   покое — иначе выглядела бы единственной «живой» строкой в списке. */
+.foot-mail{color:inherit;text-decoration:none;transition:color var(--dur-micro) var(--ease);}
+.foot-mail:hover,.foot-mail:focus-visible{color:var(--accent-gold);text-decoration:underline;}
 .foot-bottom{margin-top:var(--space-5);padding-top:var(--space-4);border-top:1px solid var(--border-line-on-navy);font-family:var(--font-mono);font-size:var(--micro);color:var(--text-on-navy-2);display:flex;justify-content:center;text-align:center;}
 
 /* Side contact rail (desktop) */
