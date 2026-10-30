@@ -43,17 +43,22 @@ const qrSrc = asset(`/images/${QR_FILE}`);
 </aside>
 
 <script>
-  /* The QR panel opens on hover for a pointer and on click for everyone else;
-     aria-expanded keeps the state announced either way. */
+  /* With a pointer the panel is opened and closed by :hover alone, so the
+     click latch below is only wired where hovering does not exist. Wiring it
+     everywhere was the bug: a mouse click both set is-open and focused the
+     button, and the panel then stayed up until the user clicked elsewhere. */
   const wechat = document.querySelector('[data-wechat]');
-  if (wechat) {
+  if (wechat && window.matchMedia('(hover: none)').matches) {
     const set = (open) => {
       wechat.classList.toggle('is-open', open);
       wechat.setAttribute('aria-expanded', String(open));
     };
-    wechat.addEventListener('click', () => set(wechat.getAttribute('aria-expanded') !== 'true'));
+    wechat.addEventListener('click', (e) => {
+      e.stopPropagation();
+      set(wechat.getAttribute('aria-expanded') !== 'true');
+    });
     wechat.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
-    wechat.addEventListener('blur', () => set(false));
+    document.addEventListener('click', () => set(false));
   }
 
   const rail = document.querySelector('[data-side-contact]');

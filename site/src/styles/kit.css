@@ -279,13 +279,16 @@ a{color:inherit;text-decoration:none;}
 .side-contact > .sc-item:first-child{border-top-left-radius:10px;}
 .side-contact > .sc-item:last-child{border-bottom-left-radius:10px;}
 .sc-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent-gold);transform:scaleY(0);transform-origin:center;transition:transform var(--dur-micro) var(--ease);}
-.sc-item:hover::before,.sc-item:focus-within::before,.sc-item.is-open::before{transform:scaleY(1);}
-.sc-item:hover,.sc-item:focus-within{background:var(--bg-navy-hover);}
+.sc-item:hover::before,.sc-item:focus-visible::before,.sc-item.is-open::before{transform:scaleY(1);}
+.sc-item:hover,.sc-item:focus-visible{background:var(--bg-navy-hover);}
 .sc-ico{display:flex;align-items:center;justify-content:center;}
 .sc-ico svg{width:22px;height:22px;display:block;}
-.sc-item:hover .sc-ico,.sc-item:focus-within .sc-ico{color:var(--accent-gold);}
+.sc-item:hover .sc-ico,.sc-item:focus-visible .sc-ico{color:var(--accent-gold);}
 .sc-pop{position:absolute;right:100%;top:0;height:54px;display:flex;align-items:center;padding:0 18px;margin-right:6px;background:var(--bg-navy);color:#fff;white-space:nowrap;font-family:var(--font-body);font-size:14px;font-weight:500;border-radius:8px;border-left:3px solid var(--accent-gold);box-shadow:var(--shadow-rail);opacity:0;visibility:hidden;transform:translateX(8px);transition:opacity var(--dur-micro) var(--ease),transform var(--dur-micro) var(--ease),visibility var(--dur-micro) var(--ease);pointer-events:none;}
-.sc-item:hover .sc-pop,.sc-item:focus-within .sc-pop,.sc-item.is-open .sc-pop{opacity:1;visibility:visible;transform:translateX(0);}
+/* Открывает наведение или клавиатурный фокус. Именно :focus-visible, а не
+   :focus-within: мышиный клик по кнопке тоже даёт ей фокус, и панель
+   оставалась висеть после того, как курсор ушёл. */
+.sc-item:hover .sc-pop,.sc-item:focus-visible .sc-pop,.sc-item.is-open .sc-pop{opacity:1;visibility:visible;transform:translateX(0);}
 .sc-pop--qr{height:auto;flex-direction:column;align-items:center;gap:10px;padding:16px;}
 .sc-qr-title{font-size:12px;font-weight:500;letter-spacing:0.04em;color:var(--accent-gold);}
 .sc-qr{width:118px;height:118px;display:flex;align-items:center;justify-content:center;background:#fff;color:var(--bg-navy);border-radius:8px;font-family:var(--font-mono);font-size:13px;letter-spacing:0.12em;}
